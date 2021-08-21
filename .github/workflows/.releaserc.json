@@ -1,0 +1,41 @@
+{
+  "branches": ["master"],
+  "plugins": [
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "conventionalcommits"
+      }
+    ],
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "preset": "conventionalcommits"
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "assets": [
+          { "path":  "../../imap.darwin_amd64", "label":  "imap for MacOS X (x64)"},
+          { "path":  "../../imap.linux_amd64", "label":  "imap for Linux (x64)"},
+          { "path":  "../../imap.windows_amd64.exe", "label":  "imap for Windows (x64)"}
+        ]
+      }
+    ],
+    [
+      "@eclass/semantic-release-docker",
+      {
+        "baseImageName": "shauncampbell/imap",
+        "registries": [
+          {
+            "url": "ghcr.io",
+            "imageName": "ghcr.io/shauncampbell/unified-imap/imap",
+            "user": "GITHUB_USER",
+            "password": "GITHUB_TOKEN"
+          }
+        ]
+      }
+    ]
+  ]
+}
