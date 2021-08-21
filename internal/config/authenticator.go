@@ -1,6 +1,7 @@
 package config
 
 import (
+	"github.com/shauncampbell/unified-imap/internal/authenticator/ldap"
 	"github.com/shauncampbell/unified-imap/internal/authenticator/memory"
 )
 
@@ -8,4 +9,5 @@ import (
 type Authenticator struct {
 	Type     string        `yaml:"type"`
 	InMemory memory.Config `yaml:"in_memory"`
+	LDAP     ldap.Config   `yaml:"ldap"`
 }

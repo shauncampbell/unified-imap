@@ -3,9 +3,10 @@ package config
 
 import (
 	"fmt"
-	"gopkg.in/yaml.v2"
 	"os"
 	"path"
+
+	yaml "gopkg.in/yaml.v2"
 )
 
 // Config is the main configuration struct for the application
